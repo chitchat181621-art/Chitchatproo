@@ -285,22 +285,25 @@ function startTimer() {
 
 // ─── CHECK ANSWER ─────────────────────────────────────────────────
 function checkAnswer(index, btn) {
-  clearInterval(timer);
+    clearInterval(timer);
+    const cat   = ROUNDS[currentRound].category;
+    const qData = questions[cat][currentQIndex];
+    const allBtns = document.querySelectorAll('.option-btn');
 
-  const cat = ROUNDS[currentRound].category;
-  const qData = questions[cat][currentQIndex];
+    allBtns.forEach(b => b.disabled = true);
 
-  document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+    if (index === qData.correct) {
+        btn.classList.add('correct');
+        playSound('sound-correct');
+        totalScore++; // silent score increment only
+    } else {
+        btn.classList.add('wrong');
+        playSound('sound-wrong');
+    }
 
-  if (index === qData.correct) {
-    btn.style.background = "green";
-    totalScore++;
-  } else {
-    btn.style.background = "red";
-  }
-
-  document.getElementById('next-btn').classList.remove('hidden');
+    document.getElementById('next-btn').classList.remove('hidden');
 }
+
 
 // ─── NEXT QUESTION ────────────────────────────────────────────────
 function nextQuestion() {
