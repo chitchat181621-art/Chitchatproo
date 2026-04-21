@@ -118,7 +118,7 @@ body {
 
 .login-box {
     position: relative;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(165, 161, 161, 0);
     border: 1px solid black;
     border-top: 3px solid black;
     border-radius: 24px;
@@ -581,9 +581,9 @@ body {
     font-family: 'Exo 2', sans-serif;
     font-size: 0.72rem;
     font-weight: 900;
-    color: white;
+    color:black;
     line-height: 1.35;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-align: center;
 }
