@@ -266,22 +266,28 @@ function loadQuestion() {
 }
 
 // ─── TIMER ────────────────────────────────────────────────────────
-function startTimer() {
-  clearInterval(timer);
-  timeLeft = 30;
+ function startTimer() {
+    clearInterval(timer);
+    timeLeft = 30;
+    const fill = document.getElementById('timer-fill');
+    const num  = document.getElementById('timer-num');
+    fill.style.width      = '100%';
+    fill.style.background = '#22d3ee';
+    num.textContent       = timeLeft;
 
-  document.getElementById('timer-num').textContent = timeLeft;
-
-  timer = setInterval(() => {
-    timeLeft--;
-    document.getElementById('timer-num').textContent = timeLeft;
-
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      document.getElementById('next-btn').classList.remove('hidden');
-    }
-  }, 1000);
-}
+    timer = setInterval(() => {
+        timeLeft--;
+        num.textContent      = timeLeft;
+        fill.style.width     = (timeLeft / 30 * 100) + '%';
+        if (timeLeft <= 5)      fill.style.background = '#f43f5e';
+        else if (timeLeft <= 9) fill.style.background = '#f59e0b';
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+    }, 1000);
+ }
 
 // ─── CHECK ANSWER ─────────────────────────────────────────────────
 function checkAnswer(index, btn) {
