@@ -308,7 +308,7 @@ body {
     transform: translateY(-50%);
     font-size: 0.62rem;
     font-weight: 900;
-    color: white;
+    color:black;
     line-height: 1;
 }
 
@@ -384,7 +384,7 @@ body {
     justify-content: center;
     font-weight: 900;
     font-size: 0.8rem;
-    color: white;
+    color:black;
     flex-shrink: 0;
     transition: background 0.2s;
 }
@@ -581,7 +581,7 @@ body {
     font-family: 'Exo 2', sans-serif;
     font-size: 0.72rem;
     font-weight: 900;
-    color:white;
+    color:black;
     line-height: 1.35;
     text-transform: uppercase;
     letter-spacing: 0.04em;
