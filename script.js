@@ -5,255 +5,144 @@ const questions = {
 
 "Logical Reasoning": [
 
-{ q: "What comes next in the series: 2, 4, 8, 16, ?", a: ["30", "32", "24", "36"], correct: 1 },
-
-{ q: "Find the missing number: 3, 6, 12, 24, ?", a: ["48", "30", "60", "36"], correct: 0 },
-
-{ q: "What comes next: 1, 4, 9, 16, ?", a: ["25", "20", "36", "30"], correct: 0 },
-
-{ q: "If CAT is coded as DBU, then DOG is coded as?", a: ["DPH", "EOH", "EPH", "FQI"], correct: 2 },
-
-{ q: "If PEN is coded as QFO, then BOOK is coded as?", a: ["DOOM", "CPPL", "BPPM", "CQQL"], correct: 1 },
-
-{ q: "If SOUTH is coded as TPVUI, then EAST is coded as?", a: ["FBTU", "FAST", "FATU", "GBTU"], correct: 0 },
-
-{ q: "A man walks north, turns right, then right again. Which direction is he facing?", a: ["North", "South", "West", "East"], correct: 1 },
-
-{ q: "A person walks east, then turns left. Which direction is he facing?", a: ["North", "West", "South", "East"], correct: 0 },
-
-{ q: "A girl walks south and turns left. Which direction is she facing?", a: ["East", "South", "North", "West"], correct: 0 },
-
-{ q: "A is father of B. B is son of C. How is A related to C?", a: ["Brother", "Husband", "Father", "Son"], correct: 1 },
-
-{ q: "Pointing to a woman, Ravi said, 'She is the daughter of my mother's only daughter.' Who is the woman?", a: ["Daughter", "Mother", "Sister", "Niece"], correct: 0 },
-
-{ q: "If A is brother of B and B is sister of C, how is A related to C?", a: ["Sister", "Brother", "Father", "Cousin"], correct: 1 },
-
-{ q: "If today is Monday, what day will it be after 10 days?", a: ["Saturday", "Thursday", "Wednesday", "Friday"], correct: 3 },
-
-{ q: "If January 1 is Sunday, what day is January 10?", a: ["Tuesday", "Wednesday", "Monday", "Thursday"], correct: 1 },
-
-{ q: "How many days are there in a leap year?", a: ["365", "364", "367", "366"], correct: 3 },
-
-{ q: "Find the next term: A, C, E, G, ?", a: ["K", "I", "H", "J"], correct: 1 },
-
-{ q: "Find the next term: Z, X, V, T, ?", a: ["R", "S", "Q", "P"], correct: 0 },
-
-{ q: "Find the next term: 2, 5, 10, 17, ?", a: ["28", "24", "30", "26"], correct: 0 },
-
-{ q: "In a 3x3 square, if rows total 15, what is the center number?", a: ["7", "9", "5", "3"], correct: 2 },
-
-{ q: "If in a square matrix the sum of opposite corners is 10, and one corner is 4, the opposite is?", a: ["7", "5", "4", "6"], correct: 3 },
-
-{ q: "Which number completes the square: 2, 4, 8, ?", a: ["18", "12", "16", "10"], correct: 2 },
-
-{ q: "Father is 40 and son is 10. After how many years will father be twice the son's age?", a: ["15", "25", "30", "20"], correct: 0 },
-
-{ q: "A mother is 30 years older than her daughter. If daughter is 10, mother is?", a: ["50", "20", "40", "30"], correct: 2 },
-
-{ q: "Two years ago, A was 8. What is A's age now?", a: ["9", "10", "11", "8"], correct: 1 },
-
-{ q: "Find the missing number in matrix: 2 4 6 / 3 6 9 / 4 8 ?", a: ["11", "13", "12", "10"], correct: 2 },
-
-{ q: "Find the missing number: 1 2 3 / 4 5 6 / 7 8 ?", a: ["10", "11", "9", "12"], correct: 2 },
-
-{ q: "Matrix pattern: 2, 4 / 6, ?", a: ["14", "10", "8", "12"], correct: 1 },
-
-{ q: "What comes next: 1, 8, 27, 64, ?", a: ["125", "81", "216", "100"], correct: 0 },
-
-{ q: "Find the odd one out: 2, 4, 8, 16, 18", a: ["4", "18", "8", "2"], correct: 1 },
-
-{ q: "What comes next: 11, 22, 44, 88, ?", a: ["176", "132", "166", "188"], correct: 0 }
-
+{ q: "What comes next: 3, 9, 27, ?", a: ["54", "81", "72", "90"], correct: 1 },
+{ q: "Find the missing number: 5, 10, 20, 40, ?", a: ["60", "80", "100", "120"], correct: 1 },
+{ q: "What comes next: 2, 6, 7, 21, 22, ?", a: ["44", "66", "23", "11"], correct: 1 },
+{ q: "If A=1, B=2, then CAT = ?", a: ["24", "22", "20", "21"], correct: 0 },
+{ q: "If RED is coded as SFE, BLUE is coded as?", a: ["CMVF", "CMUE", "BLVF", "CMWE"], correct: 0 },
+{ q: "Pointing to a man, she said: 'He is my father's brother's son.' Who is he?", a: ["Uncle", "Cousin", "Brother", "Nephew"], correct: 1 },
+{ q: "A walks south, then turns left. Which direction now?", a: ["East", "West", "North", "South"], correct: 0 },
+{ q: "If today is Friday, what day after 15 days?", a: ["Saturday", "Sunday", "Monday", "Tuesday"], correct: 0 },
+{ q: "Odd one out: 2, 3, 5, 7, 9", a: ["2", "3", "5", "9"], correct: 3 },
+{ q: "Find next: 4, 6, 9, 13, ?", a: ["18", "17", "19", "16"], correct: 0 },
+{ q: "Mirror image of LEFT is?", a: ["TFEL", "LEFT", "ELTF", "FLTE"], correct: 2 },
+{ q: "Find missing: 1, 1, 2, 3, 5, ?", a: ["6", "7", "8", "9"], correct: 2 },
+{ q: "Find next: 10, 20, 40, 80, ?", a: ["100", "120", "160", "180"], correct: 2 },
+{ q: "If P=16, Q=17, then R=?", a: ["18", "19", "20", "21"], correct: 0 },
+{ q: "A is taller than B, B taller than C. Who shortest?", a: ["A", "B", "C", "Cannot say"], correct: 2 },
+{ q: "Find next: 7, 14, 28, 56, ?", a: ["84", "96", "112", "120"], correct: 2 },
+{ q: "Find odd: Cow, Dog, Cat, Tiger", a: ["Cow", "Dog", "Cat", "Tiger"], correct: 3 },
+{ q: "Find next: 5, 25, 125, ?", a: ["500", "625", "725", "800"], correct: 1 },
+{ q: "Clock shows 3:15. Angle between hands?", a: ["0°", "7.5°", "15°", "30°"], correct: 1 },
+{ q: "Find missing: 2, 3, 5, 9, 17, ?", a: ["33", "34", "35", "36"], correct: 0 },
+{ q: "Find next: B, E, H, K, ?", a: ["N", "M", "O", "P"], correct: 0 },
+{ q: "Find odd: Apple, Banana, Mango, Carrot", a: ["Apple", "Banana", "Carrot", "Mango"], correct: 2 },
+{ q: "What comes next: 121, 144, 169, ?", a: ["196", "200", "180", "210"], correct: 0 },
+{ q: "If 2+3=13, 3+4=25, then 4+5=?", a: ["41", "45", "43", "40"], correct: 0 },
+{ q: "Find next: 1, 3, 7, 15, ?", a: ["30", "31", "32", "33"], correct: 1 },
+{ q: "Find next: Z, Y, X, W, ?", a: ["V", "U", "T", "S"], correct: 0 },
+{ q: "Find missing: 8, 27, 64, ?", a: ["81", "100", "125", "144"], correct: 2 },
+{ q: "Find odd: 4, 9, 16, 25, 30", a: ["4", "9", "25", "30"], correct: 3 },
+{ q: "Find next: 13, 26, 52, ?", a: ["78", "104", "100", "90"], correct: 1 },
+{ q: "If sky is blue, grass is?", a: ["Green", "Red", "Yellow", "White"], correct: 0 }
 ],
     "Computer Awareness": 
       [
-{ q: "Who is known as the father of the computer?", a: ["Charles Babbage", "Alan Turing", "Steve Jobs", "Bill Gates"], correct: 0 },
 
-{ q: "Which device is used to store data permanently?", a: ["RAM", "Register", "ROM", "Cache"], correct: 2 },
-
-{ q: "What does CPU stand for?", a: ["Central Processing Unit", "Core Processing Unit", "Central Process Unit", "Computer Personal Unit"], correct: 0 },
-
-{ q: "Which scheduling algorithm gives the minimum average waiting time?", a: ["Round Robin", "Shortest Job First", "Priority Scheduling", "FCFS"], correct: 1 },
-
-{ q: "Which is a web browser?", a: ["Excel", "Google Chrome", "MS Word", "Windows"], correct: 1 },
-
-{ q: "Which is an input device?", a: ["Printer", "Speaker", "Keyboard", "Monitor"], correct: 2 },
-
-{ q: "What is the full form of HTML?", a: ["Hyper Text Markup Language", "High Tech Markup Language", "Hyper Transfer Markup Language", "High Text Modern Language"], correct: 0 },
-
-{ q: "Which company developed Java?", a: ["IBM", "Sun Microsystems", "Microsoft", "Apple"], correct: 1 },
-
-{ q: "1 Kilobyte = ?", a: ["1000 Bytes", "2048 Bytes", "1024 Bytes", "512 Bytes"], correct: 2 },
-
-{ q: "Which data structure uses LIFO principle?", a: ["Array", "Stack", "Queue", "Tree"], correct: 1 },
-
-{ q: "What is the base of hexadecimal number system?", a: ["10", "16", "2", "8"], correct: 1 },
-
-{ q: "Which protocol is used to send emails?", a: ["FTP", "SMTP", "HTTP", "TCP"], correct: 1 },
-
-{ q: "Which topology requires a central hub?", a: ["Mesh", "Star", "Ring", "Bus"], correct: 1 },
-
-{ q: "Which SQL clause is used to filter groups?", a: ["GROUP BY", "WHERE", "HAVING", "ORDER BY"], correct: 2 },
-
-{ q: "Which protocol is secure version of HTTP?", a: ["SSL", "HTTPS", "TCP", "SFTP"], correct: 1 },
-
-{ q: "1 Gigabyte (GB) is equal to how many Megabytes (MB)?", a: ["1000", "1200", "1024", "1048"], correct: 2 },
-
-{ q: "Which programming language is known as the 'language of the web'?", a: ["Java", "C++", "JavaScript", "Python"], correct: 2 },
-
-{ q: "Which type of memory is 'volatile'?", a: ["Hard Drive", "SSD", "RAM", "ROM"], correct: 2 },
-
-{ q: "Which file extension is used for a Microsoft Excel file?", a: [".pptx", ".xlsx", ".txt", ".docx"], correct: 1 },
-
-{ q: "Which of these is a cloud storage service?", a: ["Adobe Photoshop", "Google Drive", "MS Word", "VLC Player"], correct: 1 },
-
-{ q: "Which data structure is used for recursion?", a: ["Queue", "Linked List", "Stack", "Array"], correct: 2 },
-
-{ q: "Which normal form removes partial functional dependency?", a: ["3NF", "2NF", "1NF", "BCNF"], correct: 1 },
-
-{ q: "What is the primary function of DNS?", a: ["To increase internet speed", "To translate domain names into IP addresses", "To scan for viruses", "To create website layouts"], correct: 1 },
-
-{ q: "Which file extension is used for compressed files?", a: [".mp3", ".zip", ".jpg", ".txt"], correct: 1 },
-
-{ q: "What is polymorphism in OOP?", a: ["One interface, multiple implementations", "Hiding data from users", "Creating multiple objects", "Inheriting properties"], correct: 0 },
-
-{ q: "Which gate outputs 1 only when both inputs are 1?", a: ["OR Gate", "AND Gate", "XOR Gate", "NOT Gate"], correct: 1 },
-
-{ q: "Which sorting algorithm has O(n log n)?", a: ["Insertion Sort", "Merge Sort", "Bubble Sort", "Selection Sort"], correct: 1 },
-
-{ q: "Which key combination opens Task Manager?", a: ["Ctrl+Alt+Del", "Ctrl+Esc", "Ctrl+Shift+Esc", "Alt+F4"], correct: 2 },
-
-{ q: "Which OSI layer ensures end-to-end delivery?", a: ["Session Layer", "Transport Layer", "Network Layer", "Data Link Layer"], correct: 1 },
-
-{ q: "Which register holds the address of next instruction?", a: ["Memory Address Register", "Program Counter", "Instruction Register", "Accumulator"], correct: 1 }
+{ q: "Which is brain of computer?", a: ["RAM", "CPU", "ROM", "Hard Disk"], correct: 1 },
+{ q: "Which memory is fastest?", a: ["RAM", "Cache", "ROM", "Disk"], correct: 1 },
+{ q: "Binary system uses base?", a: ["2", "8", "10", "16"], correct: 0 },
+{ q: "Which is output device?", a: ["Mouse", "Keyboard", "Monitor", "Scanner"], correct: 2 },
+{ q: "Full form of URL?", a: ["Uniform Resource Locator", "Universal Resource Link", "Uniform Read Link", "None"], correct: 0 },
+{ q: "Which is OS?", a: ["Linux", "Excel", "Word", "Chrome"], correct: 0 },
+{ q: "Which is programming language?", a: ["HTML", "Python", "HTTP", "FTP"], correct: 1 },
+{ q: "Which stores temporary data?", a: ["ROM", "RAM", "Disk", "CD"], correct: 1 },
+{ q: "Which is not hardware?", a: ["CPU", "Mouse", "Software", "Keyboard"], correct: 2 },
+{ q: "Which company made Windows?", a: ["Apple", "Google", "Microsoft", "IBM"], correct: 2 },
+{ q: "Which is search engine?", a: ["Chrome", "Google", "Yahoo Mail", "Word"], correct: 1 },
+{ q: "Which is input device?", a: ["Printer", "Keyboard", "Speaker", "Monitor"], correct: 1 },
+{ q: "Which is volatile memory?", a: ["ROM", "RAM", "Disk", "SSD"], correct: 1 },
+{ q: "Which is extension of Word file?", a: [".docx", ".xlsx", ".pptx", ".txt"], correct: 0 },
+{ q: "Which is DBMS?", a: ["MySQL", "Python", "HTML", "Excel"], correct: 0 },
+{ q: "Which protocol for web?", a: ["FTP", "HTTP", "SMTP", "TCP"], correct: 1 },
+{ q: "Which is antivirus?", a: ["Norton", "Chrome", "Word", "Excel"], correct: 0 },
+{ q: "Which stores BIOS?", a: ["RAM", "ROM", "Cache", "Disk"], correct: 1 },
+{ q: "Which is spreadsheet?", a: ["Excel", "Word", "PowerPoint", "Paint"], correct: 0 },
+{ q: "Which is presentation tool?", a: ["Excel", "Word", "PowerPoint", "Access"], correct: 2 },
+{ q: "Which is OS?", a: ["Android", "Chrome", "Google", "Yahoo"], correct: 0 },
+{ q: "Which is cloud?", a: ["Drive", "Keyboard", "CPU", "Mouse"], correct: 0 },
+{ q: "Which is network device?", a: ["Router", "Printer", "Keyboard", "Mouse"], correct: 0 },
+{ q: "Which is logic gate?", a: ["AND", "RAM", "ROM", "CPU"], correct: 0 },
+{ q: "Which is file system?", a: ["NTFS", "HTTP", "FTP", "SMTP"], correct: 0 },
+{ q: "Which is browser?", a: ["Chrome", "Excel", "Word", "Paint"], correct: 0 },
+{ q: "Which is not OS?", a: ["Linux", "Windows", "Oracle", "Mac"], correct: 2 },
+{ q: "Which is email protocol?", a: ["SMTP", "HTTP", "FTP", "IP"], correct: 0 },
+{ q: "Which is coding language?", a: ["C", "RAM", "ROM", "Disk"], correct: 0 },
+{ q: "Which is storage?", a: ["Hard disk", "CPU", "Mouse", "Keyboard"], correct: 0 }
 ],
+
+
     "General English": 
        
 
+
 [
-{ q: "Choose the correct article: _ apple a day keeps the doctor away.", a: ["An", "The", "A", "No article"], correct: 0 },
+{ q: "Choose correct: She _ happy.", a: ["is", "are", "am", "be"], correct: 0 },
+{ q: "Synonym of 'Big'?", a: ["Small", "Large", "Tiny", "Short"], correct: 1 },
+{ q: "Antonym of 'Fast'?", a: ["Quick", "Slow", "Rapid", "Swift"], correct: 1 },
+{ q: "He _ playing.", a: ["is", "are", "am", "be"], correct: 0 },
+{ q: "Choose article: _ dog barked.", a: ["A", "An", "The", "No"], correct: 2 },
+{ q: "Plural of 'Man'?", a: ["Mans", "Men", "Mens", "Manes"], correct: 1 },
+{ q: "Verb in sentence: She sings well.", a: ["She", "sings", "well", "none"], correct: 1 },
+{ q: "Adjective: Red apple.", a: ["Red", "Apple", "Both", "None"], correct: 0 },
+{ q: "Adverb: Runs quickly.", a: ["Runs", "Quickly", "Both", "None"], correct: 1 },
+{ q: "Past of go?", a: ["goed", "gone", "went", "goes"], correct: 2 },
+{ q: "Synonym of 'Smart'?", a: ["Dull", "Clever", "Slow", "Weak"], correct: 1 },
+{ q: "Antonym of 'Happy'?", a: ["Joyful", "Glad", "Sad", "Smile"], correct: 2 },
+{ q: "She _ tea.", a: ["drink", "drinks", "drank", "drinking"], correct: 1 },
+{ q: "Choose correct: I _ a car.", a: ["has", "have", "had", "having"], correct: 1 },
+{ q: "Article: _ elephant.", a: ["A", "An", "The", "No"], correct: 1 },
+{ q: "Plural: Child?", a: ["Childs", "Children", "Childes", "Childrens"], correct: 1 },
+{ q: "Opposite of 'Hot'?", a: ["Warm", "Cool", "Cold", "Heat"], correct: 2 },
+{ q: "Synonym of 'Quick'?", a: ["Fast", "Slow", "Late", "Lazy"], correct: 0 },
+{ q: "She _ to school.", a: ["go", "goes", "going", "gone"], correct: 1 },
+{ q: "Choose correct: They _ here.", a: ["is", "are", "am", "be"], correct: 1 },
+{ q: "Adjective: Blue sky.", a: ["Blue", "Sky", "Both", "None"], correct: 0 },
+{ q: "Adverb: He runs fast.", a: ["runs", "fast", "both", "none"], correct: 1 },
+{ q: "Past: eat?", a: ["ate", "eated", "eat", "eats"], correct: 0 },
+{ q: "Synonym: Begin?", a: ["End", "Start", "Stop", "Pause"], correct: 1 },
+{ q: "Antonym: Strong?", a: ["Weak", "Powerful", "Bold", "Brave"], correct: 0 },
+{ q: "She _ singing.", a: ["is", "are", "am", "be"], correct: 0 },
+{ q: "Article: _ sun.", a: ["A", "An", "The", "No"], correct: 2 },
+{ q: "Plural: Tooth?", a: ["Tooths", "Teeth", "Toothes", "Toothes"], correct: 1 },
+{ q: "Verb: He runs.", a: ["He", "runs", "both", "none"], correct: 1 },
+{ q: "Correct sentence?", a: ["He go school", "He goes to school", "He going school", "He gone school"], correct: 1 }
 
-{ q: "Choose the correct synonym of 'Happy'.", a: ["Sad", "Joyful", "Angry", "Tired"], correct: 1 },
-
-{ q: "Choose the correct antonym of 'Hot'.", a: ["Warm", "Heat", "Cold", "Cool"], correct: 2 },
-
-{ q: "She _ to school every day.", a: ["going", "gone", "go", "goes"], correct: 3 },
-
-{ q: "Choose the correct preposition: He is good _ English.", a: ["at", "for", "on", "in"], correct: 0 },
-
-{ q: "Find the correctly spelled word.", a: ["Beutiful", "Beautiful", "Beautifull", "Beautifulls"], correct: 1 },
-
-{ q: "Choose the synonym of 'Quick'.", a: ["Slow", "Lazy", "Fast", "Late"], correct: 2 },
-
-{ q: "Choose the antonym of 'Strong'.", a: ["Bold", "Powerful", "Brave", "Weak"], correct: 3 },
-
-{ q: "I _ my homework yesterday.", a: ["did", "done", "doing", "do"], correct: 0 },
-
-{ q: "Choose the correct article: She bought _ umbrella.", a: ["the", "an", "a", "no article"], correct: 1 },
-
-{ q: "Find the noun in the sentence: 'The cat is sleeping.'", a: ["is", "sleeping", "cat", "The"], correct: 2 },
-
-{ q: "Choose the correct plural form of 'Child'.", a: ["Childs", "Childrens", "Childes", "Children"], correct: 3 },
-
-{ q: "Which word is a verb?", a: ["Run", "Chair", "Blue", "Soft"], correct: 0 },
-
-{ q: "Choose the correct tense: They _ playing football.", a: ["was", "are", "is", "be"], correct: 1 },
-
-{ q: "Choose the synonym of 'Begin'.", a: ["Pause", "End", "Start", "Stop"], correct: 2 },
-
-{ q: "Choose the antonym of 'Early'.", a: ["Fast", "Quick", "Soon", "Late"], correct: 3 },
-
-{ q: "He sat _ the chair.", a: ["on", "in", "at", "by"], correct: 0 },
-
-{ q: "Find the adjective: 'She wore a red dress.'", a: ["dress", "red", "She", "wore"], correct: 1 },
-
-{ q: "Choose the correct form: I have _ my work.", a: ["complete", "completing", "completed", "completes"], correct: 2 },
-
-{ q: "Choose the opposite of 'Brave'.", a: ["Heroic", "Bold", "Strong", "Cowardly"], correct: 3 },
-
-{ q: "Select the correct sentence.", a: ["He goes to school.", "He go to school.", "He going to school.", "He gone to school."], correct: 0 },
-
-{ q: "Choose the synonym of 'Big'.", a: ["Tiny", "Large", "Short", "Narrow"], correct: 1 },
-
-{ q: "Choose the antonym of 'Clean'.", a: ["Fresh", "Clear", "Dirty", "Neat"], correct: 2 },
-
-{ q: "Find the adverb: 'He runs quickly.'", a: ["runs", "He", "none", "quickly"], correct: 3 },
-
-{ q: "Choose the correct article: _ sun rises in the east.", a: ["The", "A", "An", "No article"], correct: 0 },
-
-{ q: "They _ in the garden now.", a: ["play", "are playing", "plays", "played"], correct: 1 },
-
-{ q: "Choose the synonym of 'Smart'.", a: ["Weak", "Slow", "Clever", "Dull"], correct: 2 },
-
-{ q: "Choose the antonym of 'Rich'.", a: ["Strong", "Happy", "Wealthy", "Poor"], correct: 3 },
-
-{ q: "She is interested _ music.", a: ["in", "at", "on", "for"], correct: 0 },
-
-{ q: "Choose the correct sentence.", a: ["I am a student.", "I am student.", "I student am.", "Am I student."], correct: 0 }
 ],
     "General Knowledge": 
-      [
-{ q: "Who is known as the father of the computer?", a: ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"], correct: 1 },
+    [
+     { q: "What is the capital of India?", a: ["Mumbai", "Kolkata", "New Delhi", "Chennai"], correct: 2 },
+        { q: "How many planets are in our solar system?", a: ["7", "8", "9", "10"], correct: 1 },
+        { q: "Which Indian city is known as the 'Pink City'?", a: ["Udaipur", "Jaipur", "Jodhpur", "Bikaner"], correct: 1 },
+        { q: "What is the currency of the USA?", a: ["Euro", "Dollar", "Pound", "Rupee"], correct: 1 },
+        { q: "Which article of the Indian Constitution deals with the Right to Education?", a: ["Article 19", "Article 21A", "Article 14", "Article 32"], correct: 1 },
+        { q: "Which is the largest ocean?", a: ["Atlantic", "Indian", "Arctic", "Pacific"], correct: 3 },
+        { q: "Which is the national animal of India?", a: ["Lion", "Elephant", "Tiger", "Leopard"], correct: 2 },
+        { q: "Who was elected as the 15th Vice President of India in September 2025?", a: ["Jagdeep Dhankhar", "C.P. Radhakrishnan", "M. Venkaiah Naidu", "Hamid Ansari"], "correct": 1 },
+        { q: "Who was the first woman President of India?", a: ["Indira Gandhi", "Pratibha Patil", "Sarojini Naidu", "Sushma Swaraj"], correct: 1 },
+        { q: "Who became the first Indian woman to reach the Mount Everest Base Camp on a bicycle in April 2026?", a: ["Bachendri Pal", "Arunima Sinha", "Divya Singh", "Anshu Jamsenpa"], "correct": 2 },
+        { q: "Who invented the telephone?", a: ["Edison", "Tesla", "Graham Bell", "Marconi"], correct: 2 },
+        { q: "Who is known as the Iron Man of India?", a: ["Sardar Vallabhbhai Patel", "Bhagat Singh", "Subhas Chandra Bose", "Lal Bahadur Shastri"], correct: 0 },
+        { q: "In April 2026, which country was named the 'Fastest-Growing Major Economy' despite slipping to 6th spot in global GDP rankings?", a: ["China", "USA", "India", "Germany"], "correct": 2 },
+        { q: "Which is the longest river in the world?", a: ["Amazon", "Nile", "Yangtze", "Mississippi"], correct: 1 },
+        { q: "India's first commercial Chip Fabrication Plant, notified in April 2026, is being set up in which location?", a: ["Bengaluru, Karnataka", "Dholera, Gujarat", "Hyderabad, Telangana", "Noida, Uttar Pradesh"], "correct": 1 },
+        { q: "How many colors are in a rainbow?", a: ["5", "6", "7", "8"], correct: 2 },
+        { q: "In April 2026, India commenced one of the largest data collection exercises globally known as:", a: ["Digital India Survey", "Population Census 2026", "National Health Survey", "PM-Kisan Survey"], "correct": 1 },
+        { q: "Which Fundamental Right under Article 21A of the Indian Constitution ensures free and compulsory education?", a: ["Right to Freedom", "Right to Education", "Right against Exploitation", "Right to Equality"], "correct": 1 },
+        { q: "Under NEP 2020, what is the new academic structure replacing the 10+2 system?", a: ["5+3+2+4", "5+3+3+4", "4+3+3+5", "5+4+3+2"], "correct": 1 },
+        { q: "Which act introduced dual government in India?", a: ["Regulating Act 1773", "Pitt's India Act 1784", "Government of India Act 1919", "Charter Act 1833"], correct: 2 },
+        { q: "Who was the first Indian to win a Nobel Prize?", a: ["C. V. Raman", "Rabindranath Tagore", "Mother Teresa", "Amartya Sen"], correct: 1 },
+        { q: "Who wrote 'Discovery of India'?", a: ["Gandhi", "Nehru", "Ambedkar", "Tagore"], correct: 1 },
+        { q: "Which team won the ICC Men's Champions Trophy 2025 held in Dubai?", a: ["Pakistan", "New Zealand", "India", "South Africa"], "correct": 2 },
+        { q: "Which is the tallest mountain in the world?", a: ["K2", "Mount Everest", "Kangchenjunga", "Lhotse"], correct: 1 },
+        { q: "Where will the world's largest data centre be built as announced in 2025?", a: ["Gujarat", "Odisha", "Maharashtra", "Uttar Pradesh"], "correct": 0 },
+        { q: "What is the chemical symbol of Gold?", a: ["Go", "Gd", "Au", "Ag"], correct: 2 },
+        { q: "Which state launched the Indiramma Atmiya Bharosa Scheme in 2025?", a: ["Andhra Pradesh", "Telangana", "Karnataka", "Tamil Nadu"], "correct": 1 },
+        { q: "In which year did India get independence?", a: ["1945", "1946", "1947", "1948"], correct: 2 },
+        { q: "Who is known as the 'Father of the Nation' in India?", a: ["Nehru", "Ambedkar", "Bose", "Gandhi"], correct: 3 },
+        { q: "Which is the smallest country in the world?", a: ["Monaco", "Maldives", "Vatican City", "San Marino"], correct: 2 }
+    ]
 
-{ q: "Which device is used to store data permanently?", a: ["ROM", "Cache", "Register", "RAM"], correct: 0 },
-
-{ q: "What does CPU stand for?", a: ["Central Process Unit", "Central Processing Unit", "Computer Personal Unit", "Core Processing Unit"], correct: 1 },
-
-{ q: "Which scheduling algorithm gives the minimum average waiting time?", a: ["FCFS", "Round Robin", "Shortest Job First", "Priority Scheduling"], correct: 2 },
-
-{ q: "Which is a web browser?", a: ["Google Chrome", "Windows", "MS Word", "Excel"], correct: 0 },
-
-{ q: "Which is an input device?", a: ["Monitor", "Printer", "Keyboard", "Speaker"], correct: 2 },
-
-{ q: "What is the full form of HTML?", a: ["Hyper Text Markup Language", "High Tech Markup Language", "Hyper Transfer Markup Language", "High Text Modern Language"], correct: 0 },
-
-{ q: "Which company developed Java?", a: ["Microsoft", "Apple", "Sun Microsystems", "IBM"], correct: 2 },
-
-{ q: "1 Kilobyte = ?", a: ["512 Bytes", "1000 Bytes", "1024 Bytes", "2048 Bytes"], correct: 2 },
-
-{ q: "Which data structure uses LIFO principle?", a: ["Queue", "Stack", "Array", "Tree"], correct: 1 },
-
-{ q: "What is the base of hexadecimal number system?", a: ["2", "8", "10", "16"], correct: 3 },
-
-{ q: "Which protocol is used to send emails?", a: ["HTTP", "TCP", "SMTP", "FTP"], correct: 2 },
-
-{ q: "Which topology requires a central hub?", a: ["Bus", "Ring", "Star", "Mesh"], correct: 2 },
-
-{ q: "Which SQL clause is used to filter groups?", a: ["WHERE", "GROUP BY", "HAVING", "ORDER BY"], correct: 2 },
-
-{ q: "Which protocol is secure version of HTTP?", a: ["SSL", "HTTPS", "SFTP", "TCP"], correct: 1 },
-
-{ q: "1 Gigabyte (GB) is equal to how many Megabytes (MB)?", a: ["1000", "1024", "1048", "1200"], correct: 1 },
-
-{ q: "Which programming language is known as the 'language of the web'?", a: ["Python", "Java", "JavaScript", "C++"], correct: 2 },
-
-{ q: "Which type of memory is 'volatile,' meaning it loses its data when the power is turned off?", a: ["ROM", "SSD", "RAM", "Hard Drive"], correct: 2 },
-
-{ q: "Which file extension is used for a Microsoft Excel file?", a: [".docx", ".pptx", ".xlsx", ".txt"], correct: 2 },
-
-{ q: "Which of these is a cloud storage service?", a: ["Google Drive", "MS Word", "Adobe Photoshop", "VLC Player"], correct: 0 },
-
-{ q: "Which data structure is used for recursion?", a: ["Queue", "Stack", "Array", "Linked List"], correct: 1 },
-
-{ q: "Which normal form deals with removing partial functional dependencies?", a: ["1NF", "2NF", "3NF", "BCNF"], correct: 1 },
-
-{ q: "What is the primary function of a DNS (Domain Name System)?", a: ["To scan for viruses", "To translate domain names into IP addresses", "To create website layouts", "To increase internet speed"], correct: 1 },
-
-{ q: "Which file extension is commonly used for a compressed 'archive' of multiple files?", a: [".txt", ".mp3", ".zip", ".jpg"], correct: 2 },
-
-{ q: "What is polymorphism in OOP?", a: ["One interface, multiple implementations", "Hiding data from users", "Inheriting properties from a class", "Creating multiple objects"], correct: 0 },
-
-{ q: "Which gate outputs 1 only when both inputs are 1?", a: ["OR Gate", "AND Gate", "NOT Gate", "XOR Gate"], correct: 1 },
-
-{ q: "Which sorting algorithm has average time complexity of O(n log n)?", a: ["Bubble Sort", "Insertion Sort", "Merge Sort", "Selection Sort"], correct: 2 },
-
-{ q: "Which key combination opens Task Manager?", a: ["Ctrl+Shift+Esc", "Ctrl+Alt+Del", "Alt+F4", "Ctrl+Esc"], correct: 0 },
-
-{ q: "Which OSI layer is responsible for error-free delivery of data, end-to-end?", a: ["Network Layer", "Data Link Layer", "Transport Layer", "Session Layer"], correct: 2 },
-
-{ q: "Which register in the CPU holds the address of the next instruction to be executed?", a: ["Accumulator", "Instruction Register", "Program Counter", "Memory Address Register"], correct: 2 }
-]
 };
 
 // ─── ROUND CONFIG ─────────────────────────────────────────────────
