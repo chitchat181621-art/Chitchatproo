@@ -12,7 +12,7 @@ const questions = {
 { q: "If today is Friday, what day after 15 days?", a: ["Saturday", "Sunday", "Monday", "Tuesday"], correct: 0 },
 { q: "Odd one out: 2, 3, 5, 7, 9", a: ["2", "3", "5", "9"], correct: 3 },
 { q: "Find next: 4, 6, 9, 13, ?", a: ["18", "17", "19", "16"], correct: 0 },
-{ q: "Mirror image of LEFT is?", a: ["TFEL", "LEFT", "ELTF", "FLTE"], correct: 2 },
+{ q: "Mirror image of LEFT is?", a: ["TFEL", "LEFT", "ELTF", "FLTE"], correct: 0 },
 { q: "Find missing: 1, 1, 2, 3, 5, ?", a: ["6", "7", "8", "9"], correct: 2 },
 { q: "Find next: 10, 20, 40, 80, ?", a: ["100", "120", "160", "180"], correct: 2 },
 { q: "If P=16, Q=17, then R=?", a: ["18", "19", "20", "21"], correct: 0 },
@@ -254,13 +254,16 @@ function loadQuestion() {
   const container = document.getElementById('options-container');
   container.innerHTML = '';
 
-  qData.a.forEach((opt, i) => {
+ qData.a.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
-    btn.textContent = opt;
+    btn.innerHTML = `
+        <span class="opt-letter-box">${letters[i]}</span>
+        <span class="opt-text">${opt}</span>
+    `;
     btn.onclick = () => checkAnswer(i, btn);
     container.appendChild(btn);
-  });
+});
 
   startTimer();
 }
