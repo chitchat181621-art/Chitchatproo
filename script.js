@@ -329,6 +329,18 @@ function showRoundResult() {
 
     showScreen('round-result-screen');
 }
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+document.addEventListener("keydown", function(e) {
+    if (
+        (e.ctrlKey && e.key.toLowerCase() === 't') ||
+        (e.ctrlKey && e.key.toLowerCase() === 'n') ||
+        (e.ctrlKey && e.key.toLowerCase() === 'w')
+    ) {
+        e.preventDefault();
+        alert("This action is disabled during the quiz.");
+    }
+});
 
 function retryRound() {
     playSound('sound-click');
