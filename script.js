@@ -303,10 +303,18 @@ function saveScoreToServer() {
         + '&score=' + encodeURIComponent(totalScore)
         + '&total=' + encodeURIComponent(totalQuestions);
 
-    // Use image trick to bypass CORS
-    var img = new Image();
-    img.src = url;
-    console.log('Score sent! Name:', playerName, 'Score:', totalScore, 'Total:', totalQuestions);
+    console.log('Sending score... URL:', url);
+
+    // Method 1: fetch
+    fetch(url, { method: 'GET', mode: 'no-cors' })
+    .then(() => console.log('Score sent via fetch!'))
+    .catch(() => {
+        // Method 2: script tag fallback
+        var script = document.createElement('script');
+        script.src = url;
+        document.body.appendChild(script);
+        console.log('Score sent via script tag!');
+    });
 }
 // ─── FLOW ─────────────────────────────────────────────────────────
 function startJourney() {
