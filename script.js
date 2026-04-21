@@ -329,6 +329,13 @@ function showRoundResult() {
 
     showScreen('round-result-screen');
 }
+function forceSubmitQuiz() {
+    clearInterval(timer);
+
+    alert("You left the quiz window. Your quiz is being submitted automatically.");
+
+    showFinalScreen();
+}
 document.addEventListener("contextmenu", e => e.preventDefault());
 
 document.addEventListener("keydown", function(e) {
