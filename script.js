@@ -1,8 +1,5 @@
 // ─── QUESTION BANK ────────────────────────────────────────────────
 const questions = {
-    
-         
-
 "Logical Reasoning": [
 
 { q: "What comes next: 3, 9, 27, ?", a: ["54", "81", "72", "90"], correct: 1 },
@@ -142,220 +139,232 @@ const questions = {
         { q: "Who is known as the 'Father of the Nation' in India?", a: ["Nehru", "Ambedkar", "Bose", "Gandhi"], correct: 3 },
         { q: "Which is the smallest country in the world?", a: ["Monaco", "Maldives", "Vatican City", "San Marino"], correct: 2 }
     ]
-
 };
 
 // ─── ROUND CONFIG ─────────────────────────────────────────────────
 const ROUNDS = [
-    { category: "Logical Reasoning",  icon: "🧩", desc: "Put your logic and reasoning to the test!" },
-    { category: "Computer Awareness", icon: "💻", desc: "How well do you know computers & tech?" },
-    { category: "General English",    icon: "📚", desc: "Grammar, vocabulary & comprehension!" },
-    { category: "General Knowledge",  icon: "🌍", desc: "From science to history — how sharp are you?" }
+  { category: "Logical Reasoning", icon: "🧩", desc: "Put your logic and reasoning to the test!" },
+  { category: "Computer Awareness", icon: "💻", desc: "How well do you know computers & tech?" },
+  { category: "General English", icon: "📚", desc: "Grammar, vocabulary & comprehension!" },
+  { category: "General Knowledge", icon: "🌍", desc: "From science to history — how sharp are you?" }
 ];
 
 // ─── STATE ────────────────────────────────────────────────────────
-let playerName    = "";
-let currentRound  = 0;
+let playerName = "";
+let currentRound = 0;
 let currentQIndex = 0;
 let timer;
-let timeLeft      = 15;
-
-// ─── SCORE TRACKING (silent – never shown on screen) ──────────────
+let timeLeft = 30;
 let totalScore = 0;
+
+let tabSwitchCount = 0;
+let quizStarted = false;
 
 // ─── HELPERS ──────────────────────────────────────────────────────
 function playSound(id) {
-    try { const s = document.getElementById(id); s.currentTime = 0; s.play(); } catch(e) {}
+  try {
+    const s = document.getElementById(id);
+    s.currentTime = 0;
+    s.play();
+  } catch (e) {}
 }
 
 function showScreen(id) {
-    document.querySelectorAll('.screen').forEach(s => {
-        s.classList.remove('active');
-        s.classList.add('fade-out');
-    });
-    setTimeout(() => {
-        document.querySelectorAll('.screen').forEach(s => {
-            s.classList.add('hidden');
-            s.classList.remove('fade-out');
-        });
-        const target = document.getElementById(id);
-        target.classList.remove('hidden');
-        setTimeout(() => target.classList.add('active'), 20);
-    }, 300);
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+    s.classList.add('hidden');
+  });
+
+  const target = document.getElementById(id);
+  target.classList.remove('hidden');
+  target.classList.add('active');
 }
 
-// ─── SAVE TO GOOGLE SHEETS + GMAIL ───────────────────────────────
+// ─── SAVE SCORE ───────────────────────────────────────────────────
 function saveScoreToServer() {
-    const totalQuestions = 120;
-    const url = 'https://script.google.com/macros/s/AKfycbxpvIhanrIRHgFIyjWM8yZEGrxIjMUFvfaEe38QH1UUyBecebVqlpcFcmPowVXdhG9A/exec'
-        + '?name='  + encodeURIComponent(playerName)
-        + '&score=' + encodeURIComponent(totalScore)
-        + '&total=' + encodeURIComponent(totalQuestions);
+  const totalQuestions = 120;
 
-    console.log('Sending score... Name:', playerName, 'Score:', totalScore);
+  const url =
+    'https://script.google.com/macros/s/AKfycbxpvIhanrIRHgFIyjWM8yZEGrxIjMUFvfaEe38QH1UUyBecebVqlpcFcmPowVXdhG9A/exec'
+    + '?name=' + encodeURIComponent(playerName)
+    + '&score=' + encodeURIComponent(totalScore)
+    + '&total=' + encodeURIComponent(totalQuestions);
 
-    // Fetch with CORS for GitHub Pages
-    fetch(url)
+  fetch(url)
     .then(res => res.json())
-    .then(data => console.log('Score sent successfully!', data))
-    .catch(err => {
-        // Fallback image tag
-        var img = new Image();
-        img.src = url;
-        console.log('Score sent via fallback!');
+    .then(data => console.log("Saved:", data))
+    .catch(() => {
+      let img = new Image();
+      img.src = url;
     });
 }
-// ─── FLOW ─────────────────────────────────────────────────────────
+
+// ─── START QUIZ ───────────────────────────────────────────────────
 function startJourney() {
-    const inp = document.getElementById('username').value.trim();
-    if (!inp) {
-        document.getElementById('username').classList.add('shake');
-        setTimeout(() => document.getElementById('username').classList.remove('shake'), 500);
-        return;
-    }
-    playerName   = inp;
-    currentRound = 0;
-    totalScore   = 0;
-    playSound('sound-click');
-    showRoundIntro();
+  const inp = document.getElementById('username').value.trim();
+
+  if (!inp) {
+    alert("Please enter your name");
+    return;
+  }
+
+  playerName = inp;
+  totalScore = 0;
+  currentRound = 0;
+  tabSwitchCount = 0;
+
+  showRoundIntro();
 }
 
 function showRoundIntro() {
-    const r = ROUNDS[currentRound];
-    document.getElementById('round-badge-num').textContent = `${r.icon} ROUND ${currentRound + 1} of ${ROUNDS.length}`;
-    document.getElementById('round-cat-name').textContent  = r.category;
-    document.getElementById('round-desc').textContent      = r.desc;
-    showScreen('round-intro-screen');
+  const r = ROUNDS[currentRound];
+
+  document.getElementById('round-badge-num').textContent =
+    `${r.icon} ROUND ${currentRound + 1} of ${ROUNDS.length}`;
+
+  document.getElementById('round-cat-name').textContent = r.category;
+  document.getElementById('round-desc').textContent = r.desc;
+
+  showScreen('round-intro-screen');
 }
 
 function beginRound() {
-    playSound('sound-click');
-    currentQIndex = 0;
+  quizStarted = true;
+  currentQIndex = 0;
 
-    const r = ROUNDS[currentRound];
-    document.getElementById('qtb-round').textContent = `ROUND ${currentRound + 1}`;
-    document.getElementById('qtb-cat').textContent   = r.category;
+  const r = ROUNDS[currentRound];
+  document.getElementById('qtb-round').textContent = `ROUND ${currentRound + 1}`;
+  document.getElementById('qtb-cat').textContent = r.category;
 
-    showScreen('quiz-screen');
-    loadQuestion();
+  showScreen('quiz-screen');
+  loadQuestion();
 }
 
+// ─── LOAD QUESTION ────────────────────────────────────────────────
 function loadQuestion() {
-    const cat   = ROUNDS[currentRound].category;
-    const qList = questions[cat];
-    const qData = qList[currentQIndex];
+  const cat = ROUNDS[currentRound].category;
+  const qData = questions[cat][currentQIndex];
 
-    document.getElementById('question-text').textContent = qData.q;
-    document.getElementById('q-number').textContent      = `Q${currentQIndex + 1} / ${qList.length}`;
-    document.getElementById('next-btn').classList.add('hidden');
+  document.getElementById('question-text').textContent = qData.q;
+  document.getElementById('q-number').textContent =
+    `Q${currentQIndex + 1} / ${questions[cat].length}`;
 
-    const container = document.getElementById('options-container');
-    container.innerHTML = '';
-    const letters = ['A', 'B', 'C', 'D'];
+  document.getElementById('next-btn').classList.add('hidden');
 
-    qData.a.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.innerHTML = `<span class="opt-letter">${letters[i]}</span><span class="opt-text">${opt}</span>`;
-        btn.onclick   = () => checkAnswer(i, btn);
-        container.appendChild(btn);
-    });
+  const container = document.getElementById('options-container');
+  container.innerHTML = '';
 
-    startTimer();
+  qData.a.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = opt;
+    btn.onclick = () => checkAnswer(i, btn);
+    container.appendChild(btn);
+  });
+
+  startTimer();
 }
 
+// ─── TIMER ────────────────────────────────────────────────────────
 function startTimer() {
-    clearInterval(timer);
-    timeLeft = 30;
-    const fill = document.getElementById('timer-fill');
-    const num  = document.getElementById('timer-num');
-    fill.style.width      = '100%';
-    fill.style.background = '#22d3ee';
-    num.textContent       = timeLeft;
+  clearInterval(timer);
+  timeLeft = 30;
 
-    timer = setInterval(() => {
-        timeLeft--;
-        num.textContent      = timeLeft;
-        fill.style.width     = (timeLeft / 30 * 100) + '%';
-        if (timeLeft <= 5)      fill.style.background = '#f43f5e';
-        else if (timeLeft <= 9) fill.style.background = '#f59e0b';
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-            document.getElementById('next-btn').classList.remove('hidden');
-        }
-    }, 1000);
+  document.getElementById('timer-num').textContent = timeLeft;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById('timer-num').textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      document.getElementById('next-btn').classList.remove('hidden');
+    }
+  }, 1000);
 }
 
+// ─── CHECK ANSWER ─────────────────────────────────────────────────
 function checkAnswer(index, btn) {
-    clearInterval(timer);
-    const cat   = ROUNDS[currentRound].category;
-    const qData = questions[cat][currentQIndex];
-    const allBtns = document.querySelectorAll('.option-btn');
+  clearInterval(timer);
 
-    allBtns.forEach(b => b.disabled = true);
+  const cat = ROUNDS[currentRound].category;
+  const qData = questions[cat][currentQIndex];
 
-    if (index === qData.correct) {
-        btn.classList.add('correct');
-        playSound('sound-correct');
-        totalScore++; // silent score increment only
-    } else {
-        btn.classList.add('wrong');
-        playSound('sound-wrong');
-    }
+  document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
 
-    document.getElementById('next-btn').classList.remove('hidden');
+  if (index === qData.correct) {
+    btn.style.background = "green";
+    totalScore++;
+  } else {
+    btn.style.background = "red";
+  }
+
+  document.getElementById('next-btn').classList.remove('hidden');
 }
 
+// ─── NEXT QUESTION ────────────────────────────────────────────────
 function nextQuestion() {
-    const cat = ROUNDS[currentRound].category;
-    currentQIndex++;
-    if (currentQIndex < questions[cat].length) {
-        loadQuestion();
-    } else {
-        showRoundResult();
-    }
-}
+  const cat = ROUNDS[currentRound].category;
 
-function showRoundResult() {
-    playSound('sound-finish');
-    const r = ROUNDS[currentRound];
-    document.getElementById('rr-round-tag').textContent = `ROUND ${currentRound + 1} COMPLETE`;
-    document.getElementById('rr-cat').textContent       = `${r.icon} ${r.category}`;
-    document.getElementById('rr-verdict').textContent   = "🎉 Round Complete! Keep it up!";
+  currentQIndex++;
 
-    const isLast = currentRound >= ROUNDS.length - 1;
-    document.getElementById('next-round-btn').textContent = isLast ? "See Results →" : "Next Round →";
-
-    showScreen('round-result-screen');
-}
-
-function retryRound() {
-    playSound('sound-click');
-    beginRound();
-}
-
-function goNextRound() {
-    playSound('sound-click');
+  if (currentQIndex < questions[cat].length) {
+    loadQuestion();
+  } else {
     currentRound++;
-    if (currentRound >= ROUNDS.length) {
-        showFinalScreen();
+
+    if (currentRound < ROUNDS.length) {
+      showRoundIntro();
     } else {
-        showRoundIntro();
+      showFinalScreen();
     }
+  }
 }
 
+// ─── FINAL SCREEN ─────────────────────────────────────────────────
 function showFinalScreen() {
-    playSound('sound-finish');
-    document.getElementById('final-player-name').textContent = `🎉 ${playerName}`;
-    saveScoreToServer();
-    showScreen('final-screen');
+  quizStarted = false;
+
+  document.getElementById('final-player-name').textContent =
+    `🎉 ${playerName}`;
+
+  saveScoreToServer();
+  showScreen('final-screen');
 }
 
-function resetGame() {
-    playSound('sound-click');
-    currentRound = 0;
-    totalScore   = 0;
-    document.getElementById('username').value = '';
-    showScreen('login-screen');
+// ─── FORCE SUBMIT ON TAB SWITCH ───────────────────────────────────
+function forceSubmitQuiz() {
+  clearInterval(timer);
+
+  alert("You left the quiz tab. Quiz submitted automatically.");
+
+  showFinalScreen();
 }
+
+// ─── TAB SWITCH DETECTION ─────────────────────────────────────────
+document.addEventListener("visibilitychange", function () {
+  if (quizStarted && document.hidden) {
+    tabSwitchCount++;
+
+    if (tabSwitchCount >= 1) {
+      forceSubmitQuiz();
+    }
+  }
+});
+
+// ─── DISABLE RIGHT CLICK ──────────────────────────────────────────
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
+
+// ─── DISABLE SHORTCUTS ────────────────────────────────────────────
+document.addEventListener("keydown", function(e) {
+  if (
+    (e.ctrlKey && e.key.toLowerCase() === 't') ||
+    (e.ctrlKey && e.key.toLowerCase() === 'n') ||
+    (e.ctrlKey && e.key.toLowerCase() === 'w')
+  ) {
+    e.preventDefault();
+    alert("This action is disabled during the quiz.");
+  }
+});
