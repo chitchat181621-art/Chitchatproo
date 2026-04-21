@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master – Round Battle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .screen.active {
+            opacity: 1 !important;
+            pointer-events: all !important;
+            transform: translateY(0) scale(1) !important;
+        }
+        #login-screen {
+            opacity: 1 !important;
+            pointer-events: all !important;
+            transform: translateY(0) scale(1) !important;
+        }
+    </style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" class="screen active">
+    <div class="login-glow"></div>
+    <div class="login-box">
+        <div class="logo-badge">QUIZ<span>PRO</span></div>
+        <p class="login-sub">Pragathi College of Science & Management Studies</p>
+        <input type="text" id="username" placeholder="Enter Full Name" autocomplete="off" >
+        <button class="btn-primary" onclick="startJourney()">LOGIN →</button>
+    </div>
+</div>
+
+<!-- ROUND INTRO SCREEN -->
+<div id="round-intro-screen" class="screen">
+    <div class="round-intro-content">
+        <div class="round-badge-large" id="round-badge-num">🧩 ROUND 1 of 4</div>
+        <div class="round-category-name" id="round-cat-name">Logical Reasoning</div>
+        <p class="round-desc" id="round-desc">Test your logical thinking!</p>
+        <button class="btn-primary" onclick="beginRound()">BEGIN ROUND →</button>
+    </div>
+</div>
+
+<!-- QUIZ SCREEN -->
+<div id="quiz-screen" class="screen">
+    <div class="quiz-wrap">
+
+        <!-- College Header above questions -->
+        <div class="college-header">
+            <img src="logo.jpeg" alt="Pragathi College Logo" class="college-logo">
+            <div class="college-info">
+                <span class="college-name">Pragathi College of Science</span>
+                <span class="college-name">and Management Studies</span>
+            </div>
+        </div>
+
+        <div class="quiz-top-bar">
+            <div class="qtb-round" id="qtb-round">ROUND 1</div>
+            <div class="qtb-cat" id="qtb-cat">Logical Reasoning</div>
+        </div>
+
+        <div class="timer-track">
+            <div class="timer-fill" id="timer-fill"></div>
+            <span class="timer-num" id="timer-num">30</span>
+        </div>
+
+        <div class="quiz-card">
+            <div class="qc-meta">
+                <span id="q-number">Q1</span>
+            </div>
+            <p id="question-text">Loading question...</p>
+            <div id="options-container"></div>
+        </div>
+
+        <div class="quiz-nav">
+            <div></div>
+            <button id="next-btn" class="btn-primary hidden" onclick="nextQuestion()">Next →</button>
+        </div>
+    </div>
+</div>
+
+<!-- ROUND RESULT SCREEN -->
+<div id="round-result-screen" class="screen">
+    <div class="result-box">
+        <div class="result-round-tag" id="rr-round-tag">ROUND 1 COMPLETE</div>
+        <div class="result-cat" id="rr-cat">Logical Reasoning</div>
+        <div class="result-verdict" id="rr-verdict">Well done!</div>
+        <div class="result-actions">
+            
+            <button class="btn-primary" id="next-round-btn" onclick="goNextRound()">Next Round →</button>
+        </div>
+    </div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div id="final-screen" class="screen">
+    <div class="final-bg"></div>
+    <div class="final-content">
+        <div class="final-trophy">🏆</div>
+        <h1 class="final-title">CHALLENGE<br>COMPLETE!</h1>
+        <p class="final-player" id="final-player-name">Champion</p>
+        <p class="best-of-luck">✨ Best of Luck in Your Future Endeavors! ✨</p>
+        <button class="btn-primary" onclick="resetGame()">Play Again</button>
+    </div>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
