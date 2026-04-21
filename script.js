@@ -303,17 +303,17 @@ function saveScoreToServer() {
         + '&score=' + encodeURIComponent(totalScore)
         + '&total=' + encodeURIComponent(totalQuestions);
 
-    console.log('Sending score... URL:', url);
+    console.log('Sending score... Name:', playerName, 'Score:', totalScore);
 
-    // Method 1: fetch
-    fetch(url, { method: 'GET', mode: 'no-cors' })
-    .then(() => console.log('Score sent via fetch!'))
-    .catch(() => {
-        // Method 2: script tag fallback
-        var script = document.createElement('script');
-        script.src = url;
-        document.body.appendChild(script);
-        console.log('Score sent via script tag!');
+    // Fetch with CORS for GitHub Pages
+    fetch(url)
+    .then(res => res.json())
+    .then(data => console.log('Score sent successfully!', data))
+    .catch(err => {
+        // Fallback image tag
+        var img = new Image();
+        img.src = url;
+        console.log('Score sent via fallback!');
     });
 }
 // ─── FLOW ─────────────────────────────────────────────────────────
