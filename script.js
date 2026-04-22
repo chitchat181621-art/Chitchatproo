@@ -316,6 +316,14 @@ function nextQuestion() {
         showRoundResult();
     }
 }
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        alert("You left the quiz window. Quiz will be submitted.");
+
+        clearInterval(timer);
+        showFinalScreen();
+    }
+});
 
 function showRoundResult() {
     playSound('sound-finish');
@@ -329,42 +337,6 @@ function showRoundResult() {
 
     showScreen('round-result-screen');
 }
-// ─── FORCE SUBMIT ON TAB SWITCH ───────────────────────────────────
-function forceSubmitQuiz() {
-  clearInterval(timer);
-
-  alert("You left the quiz tab. Quiz submitted automatically.");
-
-  showFinalScreen();
-}
-
-// ─── TAB SWITCH DETECTION ─────────────────────────────────────────
-document.addEventListener("visibilitychange", function () {
-  if (quizStarted && document.hidden) {
-    tabSwitchCount++;
-
-    if (tabSwitchCount >= 1) {
-      forceSubmitQuiz();
-    }
-  }
-});
-
-// ─── DISABLE RIGHT CLICK ──────────────────────────────────────────
-document.addEventListener("contextmenu", function(e) {
-  e.preventDefault();
-});
-
-// ─── DISABLE SHORTCUTS ────────────────────────────────────────────
-document.addEventListener("keydown", function(e) {
-  if (
-    (e.ctrlKey && e.key.toLowerCase() === 't') ||
-    (e.ctrlKey && e.key.toLowerCase() === 'n') ||
-    (e.ctrlKey && e.key.toLowerCase() === 'w')
-  ) {
-    e.preventDefault();
-    alert("This action is disabled during the quiz.");
-  }
-});
 
 
 function retryRound() {
@@ -396,3 +368,4 @@ function resetGame() {
     document.getElementById('username').value = '';
     showScreen('login-screen');
 }
+
